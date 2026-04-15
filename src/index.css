@@ -1,0 +1,71 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  *, *::before, *::after {
+    box-sizing: border-box;
+  }
+
+  html, body, #root {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    background-color: #0f172a;
+    color: #e2e8f0;
+    font-family: 'Inter', system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  ::-webkit-scrollbar {
+    width: 4px;
+    height: 4px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #111827;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #334155;
+    border-radius: 2px;
+  }
+}
+
+@layer components {
+  .cyber-card {
+    @apply bg-[#111827] border border-[#1e293b] rounded-lg;
+  }
+
+  .cyber-btn {
+    @apply inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded
+           font-semibold text-sm tracking-wide transition-all duration-200
+           focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-[#0f172a]
+           disabled:opacity-40 disabled:cursor-not-allowed;
+  }
+
+  .cyber-btn-primary {
+    @apply cyber-btn bg-[#1e293b] text-cyber-text border border-[#334155]
+           hover:border-cyber-safe hover:text-cyber-safe hover:shadow-glow-safe
+           focus:ring-cyber-safe;
+  }
+
+  .cyber-btn-danger {
+    @apply cyber-btn bg-[#1e293b] text-cyber-text border border-[#334155]
+           hover:border-cyber-danger hover:text-cyber-danger hover:shadow-glow-danger
+           focus:ring-cyber-danger;
+  }
+
+  .cyber-input {
+    @apply w-full bg-[#0f172a] border border-[#1e293b] rounded px-3 py-2
+           text-cyber-text text-sm font-mono placeholder-cyber-dim
+           focus:outline-none focus:border-[#334155] focus:ring-1 focus:ring-[#334155]
+           transition-colors duration-150;
+  }
+
+  .label-tag {
+    @apply text-[10px] font-semibold tracking-widest uppercase text-cyber-dim;
+  }
+}
